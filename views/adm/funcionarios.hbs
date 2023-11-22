@@ -1,0 +1,50 @@
+<article class="container mt-3">
+
+    {{#if sucesso_msg}}
+    {{> sucessoMsg}}
+    {{else}}
+    {{> erroMsg}}
+    {{/if}}
+
+
+    <nav class="d-flex">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Administração</li>
+                <li class="breadcrumb-item active" aria-current="page">Funcionários</li>
+            </ol>
+        </div>
+        <form id="formNovoFuncionario" class="ms-auto">
+            <button id="btnNovoFuncionario" class="btn btn-secondary">Novo Funcionario</button>
+        </form>
+    </nav>
+
+    <hr>
+
+
+    {{#each funcionarios}}
+
+    <form id="form-func-{{{matricula}}}" class="card mb-3 shadow-sm">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Nome: </b>{{nome}}</li>
+            <li class="list-group-item"><b>Sobrenome: </b>{{sobrenome}}</li>
+            <li class="list-group-item"><b>Matrícula: </b>{{matricula}}</li>
+        </ul>
+        <select onchange="seletorDeOpcoes(`select-{{{matricula}}}`, {{{matricula}}})" id="select-{{matricula}}"
+            class="card-footer btn">
+            <option selected>Opções</option>
+            <option value="Edicao">Editar</option>
+            <option value="Excluir">Excluir</option>
+            <option value="Visualizar">Visualizar</option>
+        </select>
+    </form>
+
+
+
+    {{else}}
+    {{/each}}
+
+</article>
+
+<script src="/scripts/actionsLists/acoesListaFuncionarios.js"></script>
+<script src="/scripts/forms/formNovoFuncionario.js"></script>

@@ -1,0 +1,39 @@
+<div id="modalEdicaoCategoria" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Criação de Categoria</h5>
+        <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCadCategoria" class="container">
+
+          {{> erroMsg}}
+
+          <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria</label>
+            <input name="categoria" type="text" class="form-control" id="categoria" aria-describedby="categoriaCadastro"
+              required>
+          </div>
+
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea name="descricao" class="form-control" placeholder="Descreva a categoria..." id="descricao"
+              style="height: 100px"></textarea>
+          </div>
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+        <button id="btnCadCategoria" type="button" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoCategoria/modalEdicaoCategoria.js"></script>
+<script src="/scripts/redirects/home.js"></script>
+<script src="/scripts/forms/formCadCategoria.js"></script>

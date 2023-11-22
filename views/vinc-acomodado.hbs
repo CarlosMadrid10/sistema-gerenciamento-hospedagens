@@ -1,0 +1,41 @@
+<div id="modalEdicaoOcupacao" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmação de Hospedagem</h5>
+        <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCadOcupacao" class="container">
+
+          {{> erroMsg}}
+          <br>
+
+          {{#if hospedes}}
+            {{#each hospedes}}
+            {{hospedes}}
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="acomodado" id="radio-{{id}}" value="{{id}}">
+                <label class="form-check-label" for="radio-{{id}}">
+                  <p><span class="fw-semibold">{{nome}} {{sobrenome}} </span>| <span class="fw-semibold">{{tipoDocumento}}: {{documento}}</span></p>
+                </label>
+                <hr>
+              </div>
+            {{else}}
+            {{/each}}
+          {{else}}
+          {{/if}}
+
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+        <button id="btnCadOcupacao" type="button" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoOcupacao/modalEdicaoOcupacao.js"></script>
+<script src="/scripts/redirects/home.js"></script>

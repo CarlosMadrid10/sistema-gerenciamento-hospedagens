@@ -1,0 +1,76 @@
+<div id="modalEdicaoAcomodacao" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edição de Acomodação</h5>
+        <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form id="formEdicaoAcomodacao" class="container" action="/">
+
+          {{> erroMsg}}
+
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Titulo</label>
+            <input name="titulo" type="text" class="form-control" id="titulo" aria-describedby="tituloCadastro" value="{{acomodacao.titulo}}" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="numero" class="form-label">Numero</label>
+            <input name="numero" type="number" class="form-control" id="numero" aria-describedby="numeroCadastro" value="{{acomodacao.numero}}" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="andar" class="form-label">Andar</label>
+            <input name="andar" type="number" class="form-control" id="andar" aria-describedby="andarCadastro" value="{{acomodacao.andar}}" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="bloco" class="form-label">Bloco</label>
+            <input name="bloco" type="text" class="form-control" id="bloco" aria-describedby="blocoCadastro" value="{{acomodacao.bloco}}">
+          </div>
+
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea name="descricao" class="form-control" placeholder="Descreva a acomodação aqui..." id="descricao" required
+              style="height: 100px">{{acomodacao.descricao}}</textarea>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="disponibilidade" class="form-label">Disponibilidade</label>
+            <select name="disponibilidade" class="form-select text-capitalize" id="disponibilidade">
+              <option selected>{{acomodacao.disponibilidade}}</option>
+              <option value="Disponível">Disponível</option>
+              <option value="Indisponível">Indisponível</option>
+            </select>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria</label>
+            <select name="categoria" class="form-select" id="categoria">
+              <option value="{{acomodacao.categoria.id}}">{{acomodacao.categoria.categoria}}</option>
+            </select>
+          </div>
+
+          <input type="hidden" name="id" value="{{id}}">
+
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+        <button id="btnEdicaoAcomodacao" type="button" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoAcomodacao/modalEdicaoAcomodacao.js"></script>
+<script src="/scripts/redirects/home.js"></script>
+<script src="/scripts/forms/formEdicaoAcomodacao.js"></script>

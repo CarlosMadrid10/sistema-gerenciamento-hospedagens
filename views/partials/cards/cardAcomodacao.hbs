@@ -1,0 +1,65 @@
+        {{#if acomodacoes}}
+            {{#each acomodacoes}}
+                {{#eq disponibilidade 'Disponível'}}
+                    <div class="col">
+                        <div class="card mt-3">
+                            <div class="card-header fw-semibold text-uppercase">{{titulo}}</div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="fw-semibold">Numero: </span>{{numero}}</li>
+                                    <li class="list-group-item"><span class="fw-semibold">Bloco: </span>{{bloco}}</li>
+                                    <li class="list-group-item"><span class="fw-semibold">Andar: </span>{{andar}}</li>
+                                    <li class="list-group-item"><span class="fw-semibold">Categoria: </span>{{categoria.categoria}}</li>
+                                </ul>
+                                <ul class="list-group mt-2">
+                                    <li class="list-group-item">
+                                        <p><span class="fw-semibold">Descrição: </span>{{descricao}}</p>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item mt-2">
+                                        <span class="text-success fw-semibold">Disponível</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button class="btn btn-sm btn-primary">Ocupar</button>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                {{/eq}}
+                {{#eq disponibilidade 'Indisponível'}}
+                    <div class="col">
+                        <div class="card mt-3">
+                            <div class="card-header fw-semibold text-uppercase">{{titulo}}</div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="fw-semibold">Numero: </span>{{numero}}</li>
+                                    <li class="list-group-item"><span class="fw-semibold">Bloco: </span>{{bloco}}</li>
+                                    <li class="list-group-item"><span class="fw-semibold">Andar: </span>{{andar}}</li>
+                                    <li class="list-group-item"><span class="fw-semibold">Categoria: </span>{{categoria.categoria}}</li>
+                                </ul>
+                                <ul class="list-group mt-2">
+                                    <li class="list-group-item">
+                                        <p><span class="fw-semibold">Descrição: </span>{{descricao}}</p>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item mt-2">
+                                        <span class="text-danger fw-semibold">Indisponível</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button class="btn btn-sm btn-secondary">Desocupar</button>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                {{/eq}}  
+            {{else}}
+            {{/each}}
+        {{else}}
+        <p class="text-secondary text-center fw-semibold">Não há acomodações cadastradas.</p>
+        {{/if}}

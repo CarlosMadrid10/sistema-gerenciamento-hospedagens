@@ -1,0 +1,97 @@
+<article class="container mt-3">
+
+    {{#if sucesso_msg}}
+    {{> sucessoMsg}}
+    {{else}}
+    {{> erroMsg}}
+    {{/if}}
+
+
+    <nav class="d-flex">
+        <h4 class="text-uppercase text-secondary">Categorias</h4>
+        <form id="formNovaCategoria" class="ms-auto">
+            <button type="button" id="btnNovaCategoria" class="btn btn-secondary">Nova Categoria</button>
+        </form>
+    </nav>
+    <hr>
+
+    {{#if categorias}}
+    {{#each categorias}}
+
+    <form id="form-categoria-{{{id}}}" class="card mb-3 shadow-sm">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Categoria: </b>{{{categoria}}}</li>
+            <li class="list-group-item"><b>Descrição: </b>{{{descricao}}}</li>
+        </ul>
+        <select onchange="seletorDeOpcoes(`select-categoria-{{id}}`, `{{id}}`)" id="select-categoria-{{id}}" class="card-footer btn">
+            <option selected>Opções</option>
+            <option value="Edicao">Editar</option>
+            <option value="Excluir">Excluir</option>
+            <option value="Visualizar">Visualizar</option>
+        </select>
+    </form>
+
+    {{else}}
+    {{/each}}
+    {{else}}
+    <p class="text-secondary text-center fw-semibold">Não há categorias cadastradas.</p>
+    {{/if}}
+
+
+
+
+</article>
+
+<script src="/scripts/forms/formNovaCatetgoria.js"></script>
+
+
+
+<script>
+
+'use strict';
+
+function seletorDeOpcoes(id, idCategoria) {
+
+    const elementoSelecionado = document.getElementById(id);
+    const valorSelecionado = elementoSelecionado.value;
+
+    switch (valorSelecionado) {
+        case 'Edicao':
+            editarCategoria(idCategoria, valorSelecionado)
+            break;
+        case 'Excluir':
+            excluirCategoria(idCategoria, valorSelecionado)
+            break;
+        case 'Visualizar':
+            visualizarCategoria(idCategoria, valorSelecionado)
+            break;
+    }
+}
+
+
+
+function editarCategoria(idCategoria, valorSelecionado) {
+    manipulaForm(idCategoria, valorSelecionado)
+}
+
+function excluirCategoria(idCategoria, valorSelecionado) {
+    manipulaForm(idCategoria, valorSelecionado)
+}
+
+function visualizarCategoria(idCategoria, valorSelecionado) {
+    manipulaForm(idCategoria, valorSelecionado)
+}
+
+function manipulaForm(idCategoria, valorSelecionado) {
+    const formulario = document.getElementById(`form-categoria-${idCategoria}`)
+    const inputHidden = `<input type='hidden' name='id' value='${idCategoria}'>`
+    formulario.innerHTML = inputHidden
+    formulario.method = 'POST'
+    formulario.action = `/categoria/${String(valorSelecionado).toLowerCase()}`
+    formulario.submit()
+}
+
+
+
+
+</script>

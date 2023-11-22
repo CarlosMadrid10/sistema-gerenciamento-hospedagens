@@ -1,0 +1,67 @@
+<!--
+    nome: {type: String, required: true},
+    endereco: {type: String, required: true},
+    complemento: {type: String, default: "Não possui."},
+    cidade: {type: String, required: true},
+    estado: {type: String, required: true},
+    pais: {type: String, required: true}
+-->
+
+
+<div id="modalEdicaoLocal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Criação de Local</h5>
+                <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <form class="container" action="/">
+
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" aria-describedby="nomeCadastro" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="endereco" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" aria-describedby="enderecoCadastro" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="complemento" class="form-label">Complemento</label>
+                        <input type="text" class="form-control" id="complemento" aria-describedby="complementoCadastro">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" aria-describedby="cidadeCadastro" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="estado" aria-describedby="estadoCadastro" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="pais" class="form-label">País</label>
+                        <input type="text" class="form-control" id="pais" aria-describedby="paisCadastro" required>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoLocal/modalEdicaoLocal.js"></script>
+<script src="/scripts/redirects/home.js"></script>

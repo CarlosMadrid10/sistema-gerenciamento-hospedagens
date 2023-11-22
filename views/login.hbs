@@ -1,0 +1,33 @@
+
+<div class="modal" tabindex="-1" id="modal-login">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Entrada</h5>
+            </div>
+            <div class="modal-body container">
+                {{> sucessoMsg}}
+                {{> erroMsg}}
+
+                <form id="formLogin">
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Usuário</label>
+                        <input name="usuario" type="text" class="form-control" id="user" aria-describedby="user-div">
+                        <div id="user-div" class="form-text">Insira seu usuário para entrar</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" name="senha" class="form-control" id="senha">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <br />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/scripts/modals/login/modalLogin.js"></script>
+<script src="/scripts/forms/formLogin.js"></script>

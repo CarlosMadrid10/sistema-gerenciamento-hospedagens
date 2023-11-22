@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/styles/acomodacoes/acomodacoes.css">
+<article class="container mt-3">
+
+    {{#if sucesso_msg}}
+    {{> sucessoMsg}}
+    {{else}}
+    {{> erroMsg}}
+    {{/if}}
+
+
+    <h4 class="text-uppercase text-secondary text-center">Acomodações</h4>
+    <hr>
+    <div class="row row-cols-2">
+        {{> cards/cardAcomodacao}}
+    </div>
+</article>
+
+
+
+<script src="/scripts/breakpoints/992/main.js"></script>

@@ -1,0 +1,36 @@
+
+{{#if acomodacoes}}
+  {{#each acomodacoes}}
+    {{#eq disponibilidade 'Disponível'}}
+      <div class="col">
+        <div id="acomodacao-{{id}}" class="card mt-3">
+          <div class="card-header fw-semibold text-uppercase">{{titulo}}</div>
+          <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><span class="fw-semibold">Numero: </span>{{numero}}</li>
+                  <li class="list-group-item"><span class="fw-semibold">Bloco: </span>{{bloco}}</li>
+                  <li class="list-group-item"><span class="fw-semibold">Andar: </span>{{andar}}</li>
+                  <li class="list-group-item"><span class="fw-semibold">Categoria: </span>{{categoria.categoria}}</li>
+                </ul>
+                <ul class="list-group mt-2">
+                  <li class="list-group-item">
+                    <p><span class="fw-semibold">Descrição: </span>{{descricao}}</p>
+                  </li>
+                </ul>
+          </div>
+          <div class="card-footer text-center">
+            <form action="/acomodacao/ocupacao" method="GET">
+              <input type="hidden" name="id" value="{{id}}">
+              <button type="submit" class="btn btn-sm btn-primary">Ocupar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {{/eq}}
+  {{else}}
+  {{/each}}
+{{else}}
+  <p class="text-secondary text-center fw-semibold">Não há acomodações cadastradas.</p>
+{{/if}}
+
+

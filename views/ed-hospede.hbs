@@ -1,0 +1,82 @@
+<!--
+    nome: {type: String, required: true},
+    sobrenome: {type: String, required: true},
+    dataNasc: {type: String, required: true},
+    documento: {type: String, required: true},
+    acomodacao: {type: mongoose.Schema.Types.ObjectId, ref: 'acomodacao'}
+-->
+
+
+<div id="modalEdicaoHospede" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edição de Hospede</h5>
+                <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="formEditHospede" class="container">
+
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeCadastro"value="{{hospede.nome}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="sobrenome" class="form-label">Sobrenome</label>
+                        <input name="sobrenome" type="text" class="form-control" id="sobrenome" aria-describedby="sobrenomeCadastro" value="{{hospede.sobrenome}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+                        <input name="dataNasc" type="date" class="form-control" id="dataNascimento" aria-describedby="dataNascimento" value="{{hospede.dataNasc}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipoDocumento" class="form-label fw-semibold">tipoDocumento</label>
+                        <select name="tipoDocumento" class="form-select" id="tipoDocumento" aria-label="tipoDocumentoCadastro">
+                            <option value="{{hospede.tipoDocumento}}"selected>{{hospede.tipoDocumento}}</option>
+                            <option value="RG">RG</option>
+                            <option value="CPF">CPF</option>
+                            <option value="CNH">CNH</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="documento" class="form-label">Documento</label>
+                        <input name="documento" type="text" class="form-control" id="documento" aria-describedby="documentoCadastro" value="{{hospede.documento}}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="fw-semibold">Acomodado em: </span>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+                <button id="btnFormEditHospede" type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoHospede/modalEdicaoHospede.js"></script>
+<script src="/scripts/redirects/home.js"></script>
+
+<script>
+const formEditHospede = document.querySelector('#formEditHospede')
+const btnFormEditHospede = document.querySelector('#btnFormEditHospede')
+
+btnFormEditHospede.onclick = () => {
+  formEditHospede.method = 'POST'
+  formEditHospede.action = '/hospede/editar'
+  formEditHospede.submit()
+}
+
+
+</script>

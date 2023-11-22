@@ -1,0 +1,60 @@
+<div id="modalEdicaoHospede" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Criação de Hospede</h5>
+                <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="formCadHospede" class="container">
+
+                    {{> erroMsg}}
+
+                    <div class="mb-3">
+                        <label  for="nome" class="form-label">Nome</label>
+                        <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeCadastro" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="sobrenome" class="form-label">Sobrenome</label>
+                        <input name="sobrenome" type="text" class="form-control" id="sobrenome" aria-describedby="sobrenomeCadastro" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+                        <input name="dataNasc" type="date" class="form-control" id="dataNascimento" aria-describedby="dataNascimento" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipoDocumento" class="form-label fw-semibold">Tipo de Documento</label>
+                        <select name="tipoDocumento" class="form-select" id="tipoDocumento" aria-label="tipoDocumentoCadastro">
+                            <option selected>Selecione o tipo de documento</option>
+                            <option value="RG">RG</option>
+                            <option value="CPF">CPF</option>
+                            <option value="CNH">CNH</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="documento" class="form-label">Documento</label>
+                        <input name="documento" type="text" class="form-control" id="documento" aria-describedby="documentoCadastro" required>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+                <button id="btnCadHospede" type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoHospede/modalEdicaoHospede.js"></script>
+<script src="/scripts/redirects/home.js"></script>
+<script src="/scripts/forms/formCadHospede.js"></script>

@@ -1,0 +1,45 @@
+
+<article class="container mt-3">
+    {{#if sucesso_msg}}
+    {{> sucessoMsg}}
+    {{else}}
+    {{> erroMsg}}
+    {{/if}}
+
+
+    <nav class="d-flex">
+        <h4 class="text-uppercase text-secondary">Hospedes</h4>
+        <form id="formNovoHospede" class="ms-auto">
+            <button type="button" id="btnNovoHospede" class="btn btn-secondary">Novo Hospede</button>
+        </form>
+    </nav>
+    <hr>
+
+
+    {{#if hospedes}}
+        {{#each hospedes}}
+            <form id="form-hospede-{{{id}}}" class="card mb-3 shadow-sm">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Nome: </b>{{{nome}}}</li>
+                    <li class="list-group-item"><b>Sobrenome: </b>{{{sobrenome}}}</li>
+                </ul>
+                <select onchange='seletorDeOpcoes(`select-{{{id}}}`, `{{{id}}}`)' id="select-{{{id}}}" class="card-footer btn">
+                    <option selected>Opções</option>
+                    <option value="Edicao">Editar</option>
+                    <option value="Excluir">Excluir</option>
+                    <option value="Visualizar">Visualizar</option>
+                </select>
+            </form>
+        {{else}}    
+        {{/each}}
+    {{else}}
+        <p class="text-secondary text-center fw-semibold">Não há hospedes cadastrados.</p>
+    {{/if}}
+
+
+</article>
+
+
+
+<script src="/scripts/forms/formNovoHospede.js"></script>
+<script src="/scripts/actionsLists/acoesListaHospedes.js"></script>

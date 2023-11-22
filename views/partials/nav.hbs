@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#principalNavbar"
+      aria-controls="principalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="principalNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/acomodacoes" aria-current="page">Acomodações</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/hospedes" aria-current="page">Hospedes</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="filtro">
+        <input class="form-control me-2" type="filtro" placeholder="Filtre" aria-label="filtro">
+        <button class="btn btn-outline-success me-2" type="submit">Filtrar</button>
+      </form>
+
+      <button id="btnMaisOpcoes" class="btn btn-secondary">Mais Opções</button>
+    </div>
+  </div>
+</nav>
+
+
+<!--Modal-->
+<div id="modalMaisOpcoes" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mais Opções</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="list-group">
+          <a href="/meu-perfil" class="list-group-item list-group-item-action">Meu Perfil</a>
+          <a href="/local" class="list-group-item list-group-item-action">Local</a>
+          <a href="/categorias" class="list-group-item list-group-item-action">Categorias</a>
+          <a href="/acomodacoes/gerenciamento" class="list-group-item list-group-item-action">Gerenciamento de Acomodações</a>
+        </div>
+        {{#eq user.master 'Sim'}}
+          <br>
+          <h5 class="text-secondary text-center">Master</h5>
+          <hr>
+          <div class="list-group">
+            <a href="/funcionarios" class="list-group-item list-group-item-action">Funcionarios</a>
+          </div>
+        {{else}}
+        {{/eq}}
+
+      </div>
+      <form action="/logout" method="post" class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-secondary">Logout</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="/scripts/modals/nav/btnMaisOpcoes.js"></script>
+<script src="/scripts/breakpoints/992/nav.js"></script>
+<script src="/scripts/navigation/navLinksActive.js"></script>

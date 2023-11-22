@@ -1,0 +1,56 @@
+<article class="container mt-3">
+
+    {{#if sucesso_msg}}
+    {{> sucessoMsg}}
+    {{else}}
+    {{> erroMsg}}
+    {{/if}}
+
+
+    <nav class="d-flex">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Acomodações</li>
+                <li class="breadcrumb-item active" aria-current="page">Gerenciamento</li>
+            </ol>
+        </div>
+        <form id="formNovAcomodacao" class="ms-auto">
+            <button id="btnNovaAcomodacao" class="btn btn-secondary">Nova Acomodação</button>
+        </form>
+    </nav>
+
+    <hr>
+
+{{#if acomodacoes}}
+
+    {{#each acomodacoes}}
+
+    <form id="form-func-{{{id}}}" class="card mb-3 shadow-sm">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Titulo: </b>{{titulo}}</li>
+            <li class="list-group-item"><b>Numero: </b>{{numero}}</li>
+            <li class="list-group-item"><b>Andar: </b>{{andar}}</li>
+            <li class="list-group-item"><b>Bloco: </b>{{bloco}}</li>
+            <li class="list-group-item"><b>Categoria: </b>{{categoria.categoria}}</li>
+        </ul>
+        <select onchange="seletorDeOpcoes(`select-{{{id}}}`, `{{{id}}}`)" id="select-{{id}}"
+            class="card-footer btn">
+            <option selected>Opções</option>
+            <option value="Edicao">Editar</option>
+            <option value="Excluir">Excluir</option>
+            <option value="Visualizar">Visualizar</option>
+        </select>
+    </form>
+
+
+
+    {{else}}
+    {{/each}}
+
+{{else}}
+<p class="text-secondary text-center fw-semibold">Não há acomodações cadastradas.</p>
+{{/if}}
+
+</article>
+<script src="/scripts/actionsLists/acoesListaAcomodacao.js"></script>
+<script src="/scripts/forms/formNovaHospedagem.js"></script>

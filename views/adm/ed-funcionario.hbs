@@ -1,0 +1,67 @@
+
+<div id="modalEdicaoFuncionario" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edição de Funcionário</h5>
+        <button onclick="redirectHome()" type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form class="container" id="formEditFunc">
+
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeCadastro" value="{{funcionario.nome}}" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="sobrenome" class="form-label">Sobrenome</label>
+            <input name="sobrenome" type="text" class="form-control" id="sobrenome" aria-describedby="sobrenomeCadastro" value="{{funcionario.sobrenome}}"required>
+          </div>
+
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Usuario</label>
+            <input name="usuario" type="text" class="form-control" id="usuario" aria-describedby="usuarioCadastro" value="{{funcionario.usuario}}" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="dataNasc" class="form-label">Data de nascimento</label>
+            <input name="dataNasc" type="date" class="form-control" id="dataNasc" aria-describedby="dataNascCadastro" value="{{funcionario.dataNasc}}" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="matricula" class="form-label">Matrícula</label>
+            <p class="form-control bg-body-secondary">{{funcionario.matricula}}</p>
+            <input type="hidden" name="matricula" value="{{funcionario.matricula}}">
+          </div>
+
+          <div class="mb-3">
+            <label for="funcao" class="form-label">Função</label>
+            <input name="funcao" type="text" class="form-control" id="funcao" aria-describedby="funcaoCadastro" value="{{funcionario.funcao}}" required>
+          </div>
+          <div class="mb-3">
+            <label for="master" class="form-label">Master</label>
+            <p class="form-control bg-body-secondary">{{funcionario.master}}</p>
+          </div>
+
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="redirectHome()" type="button" class="btn btn-secondary">Voltar</button>
+        <button id="btnFormEditFunc" type="button" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/scripts/modals/edicaoFuncionario/modalEdicaoFuncionario.js"></script>
+<script src="/scripts/redirects/home.js"></script>
+
+
+
+<script src="/scripts/forms/formEditFunc.js"></script>
